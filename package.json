@@ -1,0 +1,28 @@
+{
+  "name": "data-expess",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/swargo/DataExpress.git"
+  },
+  "author": "Semicolon Drop Table Master",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/swargo/DataExpress/issues"
+  },
+  "homepage": "https://github.com/swargo/DataExpress#readme",
+  "dependencies": {
+    "bcrypt-nodejs": "0.0.3",
+    "body-parser": "^1.16.1",
+    "cookie-parser": "^1.4.3",
+    "express": "^4.14.1",
+    "express-sessions": "^1.0.6",
+    "mongoose": "^4.8.5",
+    "pug": "^2.0.0-beta11"
+  }
+}
