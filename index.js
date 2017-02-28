@@ -20,7 +20,7 @@ app.use(express.static(path.join(__dirname + '/public')));
 //     res.status(404).send("Sorry, can't find that page!");
 // });
 
-var urlencodedParser = bodyParser.urlencoded({ extended: true })
+var urlencodedParser = bodyParser.urlencoded({ extended: true });
 
 app.get('/', route.index);
 app.get('/create', route.create);
