@@ -1,0 +1,25 @@
+doctype
+html
+    head
+        title Add new person
+        link(rel='stylesheet', href='/styles/style.css')
+    body
+        h3 Customer Details
+        form(id='form', method='post', action='/create')
+            label(for='name') Name: 
+            input(type='text', name='name')
+            br
+            label(for='age') Age: 
+            input(type='text', name='age')
+            br
+            label(for='species') Species: 
+            select(name='species')
+                option(value="Human") Human
+                option(value="Vampire") Vampire
+                option(value="Werewolf") Werewolf
+                option(value="Zombie") Zombie
+            br
+            input(type='submit', value='Add Person')
+
+
+

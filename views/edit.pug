@@ -1,0 +1,32 @@
+doctype
+html
+    head
+        title Edit Animal
+        link(rel='stylesheet', href='/styles/style.css')
+    body
+        h3 Edit Animal
+        form(id='form', method='post', action='/edit/' + animal.id)
+            label(for='name') Name: 
+            input(type='text', name='name' value=animal.name)
+            br
+            label(for='species') Species: 
+            input(type='text', name='species' value=animal.species)
+            br
+            label(for='type') Type:
+            select(name='type')
+                option(selected = animal.type) #{animal.type}
+                
+                option(value="Mammal") Mammal
+                option(value="Reptile") Reptile
+                option(value="Amphibian") Amphibian
+            br
+            label(for='age') Age: 
+            input(type='text', name='age' value=animal.age)
+            br
+            label(for='temperament') Temperament: 
+            input(type='text', name='temperament' value=animal.temperament)
+            br
+            input(type='submit', value='Update Animal')
+
+
+
