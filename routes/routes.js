@@ -8,23 +8,21 @@ mdb.once('open', function (callback) {
     
 });
 
-var animalSchema = mongoose.Schema({
+var personSchema = mongoose.Schema({
     name: String,
-    species: String,
-    type: String,
     age: String,
-    temperament: String
+    species: String
 });
 
 
-var Animal = mongoose.model('Animal_Collection', animalSchema);
+var Person = mongoose.model('People_Collection', personSchema);
 
 
 
 exports.index = function(req, res) {
-    Animal.find(function (err, animal) {
+    Person.find(function (err, person) {
         if (err) return console.error(err);
-        res.render('index',{ title: 'Animal List', animals: animal});
+        res.render('index',{ title: 'People List', people: person});
     });  
 };
 
@@ -32,9 +30,9 @@ exports.create = function (req, res) {
     res.render('create');
 };
 
-exports.createAnimal = function (req, res) {
-    var animal = new Animal({ name: req.body.name, species: req.body.species, type: req.body.type, age: req.body.age, temperament: req.body.temperament });
-    animal.save(function (err, animal) {
+exports.createPerson = function (req, res) {
+    var person = new Person({ name: req.body.name, age: req.body.age, species: req.body.species });
+    person.save(function (err, person) {
     if (err) return console.error(err);
         console.log(req.body.name + ' added');
     });
@@ -42,21 +40,19 @@ exports.createAnimal = function (req, res) {
 };
 
 exports.edit = function (req, res) {
-    Animal.findById(req.params.id, function (err, animal) {
+    Person.findById(req.params.id, function (err, person) {
         if (err) return console.error(err);
-        res.render('edit', { animal: animal });
+        res.render('edit', { person: person });
     }); 
 };
 
-exports.editAnimal = function (req, res) {
-    Animal.findById(req.params.id, function (err, animal) {
+exports.editPerson = function (req, res) {
+    Person.findById(req.params.id, function (err, person) {
         if (err) return console.error(err);
-        animal.name = req.body.name;
-        animal.species = req.body.species;
-        animal.type = req.body.type;
-        animal.age = req.body.age;
-        animal.temperament = req.body.temperament;
-        animal.save(function (err, animal) {
+        person.name = req.body.name;
+        person.age = req.body.age;
+        person.species = req.body.species;
+        person.save(function (err, person) {
         if (err) return console.error(err);
             console.log(req.body.name + ' updated');
         });
@@ -66,15 +62,15 @@ exports.editAnimal = function (req, res) {
 };
 
 exports.delete = function (req, res) {
-    Animal.findByIdAndRemove(req.params.id, function (err, animal) {
+    Person.findByIdAndRemove(req.params.id, function (err, person) {
         if (err) return console.error(err);
         res.redirect('/');
     }); 
 };
 
 exports.details = function (req, res) {
-    Animal.findById(req.params.id, function (err, animal) {
+    Person.findById(req.params.id, function (err, person) {
         if (err) return console.error(err);
-        res.render('details',{ title: 'Animal List', animal: animal});
+        res.render('details',{ title: 'People List', person: person});
     });  
 };

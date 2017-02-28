@@ -1,32 +1,27 @@
 doctype
 html
     head
-        title Edit Animal
+        title Edit Person
         link(rel='stylesheet', href='/styles/style.css')
     body
-        h3 Edit Animal
-        form(id='form', method='post', action='/edit/' + animal.id)
+        h3 Edit Person
+        form(id='form', method='post', action='/edit/' + person.id)
             label(for='name') Name: 
-            input(type='text', name='name' value=animal.name)
-            br
-            label(for='species') Species: 
-            input(type='text', name='species' value=animal.species)
-            br
-            label(for='type') Type:
-            select(name='type')
-                option(selected = animal.type) #{animal.type}
-                
-                option(value="Mammal") Mammal
-                option(value="Reptile") Reptile
-                option(value="Amphibian") Amphibian
+            input(type='text', name='name' value=person.name)
             br
             label(for='age') Age: 
-            input(type='text', name='age' value=animal.age)
+            input(type='text', name='age' value=person.age)
             br
-            label(for='temperament') Temperament: 
-            input(type='text', name='temperament' value=animal.temperament)
+            label(for='species') Species:
+            select(name='species')
+                option(selected = person.species) #{person.species}
+                
+                option(value="Human") Human
+                option(value="Vampire") Vampire
+                option(value="Werewolf") Werewolf
+                option(value="Zombie") Zombie
             br
-            input(type='submit', value='Update Animal')
+            input(type='submit', value='Update Person')
 
 
 

@@ -2,27 +2,25 @@ doctype
 html
     head
         title= title
-        link(href='/styles/style.css', rel='stylesheet')
+        link(href='/css/style.css', rel='stylesheet')
     body
-        h3 List of Animals
+        h3 List of People
 
         table(class='gridtable')
             tr
                 th Id
                 th Name
-                th Species
-                th Type
                 th Age
-                th Temperament
-            each item in animals
+                th Species
+                th 
+                th 
+            each item in people
                 tr
                     td
                         a(href='/details/' + item.id) #{item.id}
                     td #{item.name}
-                    td #{item.species}
-                    td #{item.type}
                     td #{item.age}
-                    td #{item.temperament}
+                    td #{item.species}
                     td
                         a(href='/edit/' + item.id) Edit
                     td
@@ -30,4 +28,4 @@ html
 
         p
         #menu
-            a(href='/create') Add new animal
+            a(href='/create') Add new person
