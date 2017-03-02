@@ -59,9 +59,14 @@ exports.edit = function (req, res) {
 exports.editPerson = function (req, res) {
     Person.findById(req.params.id, function (err, person) {
         if (err) return console.error(err);
-        person.name = req.body.name;
+        person.username = req.body.username;
+        person.password = req.body.password;
+        person.userlevel = req.body.userlevel;
+        person.email = req.body.email;
         person.age = req.body.age;
-        person.species = req.body.species;
+        person.a1 = req.body.a1;
+        person.a2 = req.body.a2;
+        person.a3 = req.body.a3;
         person.save(function (err, person) {
         if (err) return console.error(err);
             console.log(req.body.name + ' updated');
@@ -89,5 +94,12 @@ exports.admin = function (req, res) {
     Person.find(function (err, person) {
         if (err) return console.error(err);
         res.render('admin',{ title: 'User List', people: person});
+    });  
+};
+
+exports.login = function (req, res) {
+    Person.find(function (err, person) {
+        if (err) return console.error(err);
+        res.render('admin',{ title: 'Login', people: person});
     });  
 };
