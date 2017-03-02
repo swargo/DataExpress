@@ -1,10 +1,7 @@
-doctype
-html
-    head
-        title= title
-        link(href='/css/style.css', rel='stylesheet')
-    body
-        h3 List of People
+extends layout
+
+block content
+        h1 List of People
 
         table(class='gridtable')
             tr
@@ -14,14 +11,14 @@ html
                 th User Level
                 th Email
                 th Age
-                th a1
-                th a2
-                th a3
+                th Answer 1
+                th Answer 2
+                th Answer 3
             each item in people
                 tr
                     td
                         a(href='/details/' + item.id) #{item.id}
-                    td #{item.name}
+                    td #{item.username}
                     td #{item.password}
                     td #{item.userlevel}
                     td #{item.email}

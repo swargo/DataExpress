@@ -1,22 +1,21 @@
 doctype html
 head 
     link(href='./css/style.css', rel='stylesheet')
-    <link href="https://fonts.googleapis.com/css?family=Nosifer|Ubuntu" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet">
     <link rel='shortcut icon' href='./images/favicon.ico' type='image/x-icon'/ >
     block vars
     title #{title}
 body
+    header
+        h1 Data Express
     nav
         ul
             li
-                a(href='index') Home
+                a(href='/') Home
                 a(href='create') Register
                 a(href='login') Login
                 a(href='admin') Admin
-    .container
-        header
-            h1 Data Express
-        section
-            block content
-        footer
-            p3 Copyright &copy; Semicolon Drop Table Master 2017
+    section
+        block content
+    footer
+        p3 Copyright &copy; Semicolon Drop Table Master 2017
