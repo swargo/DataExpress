@@ -9,15 +9,18 @@ mdb.once('open', function (callback) {
 });
 
 var personSchema = mongoose.Schema({
-    name: String,
+    username: String,
+    password: String,
+    userlevel: String,
+    email: String,
     age: String,
-    species: String
+    a1: String,
+    a2: String,
+    a3: String
 });
 
 
 var Person = mongoose.model('People_Collection', personSchema);
-
-
 
 exports.index = function(req, res) {
     Person.find(function (err, person) {
@@ -31,7 +34,14 @@ exports.create = function (req, res) {
 };
 
 exports.createPerson = function (req, res) {
-    var person = new Person({ name: req.body.name, age: req.body.age, species: req.body.species });
+    var person = new Person({ username: req.body.username, 
+        password: req.body.password,
+        userlevel: req.body.userlevel,
+        email: req.body.email, 
+        age: req.body.age, 
+        a1: req.body.a1,
+        a2: req.body.a2,
+        a3: req.body.a3 });
     person.save(function (err, person) {
     if (err) return console.error(err);
         console.log(req.body.name + ' added');
@@ -72,5 +82,12 @@ exports.details = function (req, res) {
     Person.findById(req.params.id, function (err, person) {
         if (err) return console.error(err);
         res.render('details',{ title: 'People List', person: person});
+    });  
+};
+
+exports.admin = function (req, res) {
+    Person.find(function (err, person) {
+        if (err) return console.error(err);
+        res.render('admin',{ title: 'User List', people: person});
     });  
 };

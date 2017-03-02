@@ -1,25 +1,40 @@
 doctype
 html
     head
-        title Add new person
+        title Add new user
         link(rel='stylesheet', href='/styles/style.css')
     body
-        h3 Customer Details
+        h3 User Information
         form(id='form', method='post', action='/create')
-            label(for='name') Name: 
-            input(type='text', name='name')
+            label(for='username') Username: 
+            input(type='text', name='username')
+            br
+            label(for='password') Password: 
+            input(type='text', name='password')
+            br
+            label(for='email') Email: 
+            input(type='text', name='password')
             br
             label(for='age') Age: 
             input(type='text', name='age')
             br
-            label(for='species') Species: 
-            select(name='species')
-                option(value="Human") Human
-                option(value="Vampire") Vampire
-                option(value="Werewolf") Werewolf
-                option(value="Zombie") Zombie
+            label(for='a1') What is your gender?: 
+            select(name='a1')
+                option(value="Male") Male
+                option(value="Female") Female
+                option(value="Other") Other
             br
-            input(type='submit', value='Add Person')
+            label(for='a2') Are you currently employed?: 
+            select(name='a2')
+                option(value="Yes") Yes
+                option(value="No") No
+            br
+            label(for='a3') Do you prefer cats or dogs?: 
+            select(name='a3')
+                option(value="Cats") Cats
+                option(value="Dogs") Dogs
+            br
+            input(type='submit', value='Create')
 
 
 
