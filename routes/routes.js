@@ -86,7 +86,7 @@ exports.delete = function (req, res) {
 exports.details = function (req, res) {
     Person.findById(req.params.id, function (err, person) {
         if (err) return console.error(err);
-        res.render('details',{ title: 'People List', person: person});
+        res.render('details',{ title: 'User List', person: person});
     });  
 };
 
