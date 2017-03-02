@@ -1,6 +1,7 @@
 body {
-    font-family: verdana,arial,sans-serif;
-    font-size:12px;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size:18px;
+    background-color: gray;
 }
 
 table.gridtable {
@@ -22,4 +23,37 @@ table.gridtable td {
     border-style: solid;
     border-color: #666666;
     background-color: #ffffff;
+}
+
+h1 {
+    margin-left: 5px;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 1%;
+    overflow: hidden;
+    background-color: #333;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: inline;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover {
+    background-color: #111;
+}
+
+footer {
+    margin-top: 1.5%;
+    margin-left: 5px;
 }
