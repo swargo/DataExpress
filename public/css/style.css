@@ -133,8 +133,25 @@ h3{
     padding-left: 12.5%;
 }
 
-#mainPic{
-    width: 100%;
+
+@keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+#topPic, #bottomPic
+{
+    position:absolute;
+    width:100%;
+}
+#topPic
+{
+    animation: fadein 3s;
+    z-index: 20;
+}
+#bottomPic
+{
+    z-index: 10;
 }
 
 #login,#register{
