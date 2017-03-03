@@ -1,8 +1,15 @@
 body {
     font-family: 'Josefin Sans', sans-serif;
     font-size:18px;
-    background-color: gray;
+    background-color: #29292A;
 }
+
+#logo{
+    width: 250px;
+    height: 60px;
+
+}
+
 
 table.gridtable {
     color:#333333;
@@ -25,8 +32,16 @@ table.gridtable td {
     background-color: #ffffff;
 }
 
-h1 {
-    margin-left: 5px;
+header{
+    margin: 10px;
+}
+
+#phoneNum{
+    color:#5e5e60;
+}
+
+nav{
+    border-top: solid #5e5e60 1px;
 }
 
 ul {
@@ -34,7 +49,14 @@ ul {
     margin: 0;
     padding: 1%;
     overflow: hidden;
-    background-color: #333;
+
+}
+
+#logoB, #logoB:hover{
+    margin: 0;
+    margin-right: 20px;
+    border: 0;
+
 }
 
 li {
@@ -45,15 +67,121 @@ li a {
     display: inline;
     color: white;
     text-align: center;
-    padding: 14px 16px;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin: 5px;
     text-decoration: none;
+    border-top: solid transparent 3px;
+    font-size: 20px;
+    float: right;
+    margin-top: 10px;
+    padding-top: 5px;
+    font-variant:all-small-caps;
 }
 
 li a:hover {
-    background-color: #111;
+    border-top: solid #FF5E00 3px;
+    color: #FF5E00;
 }
 
 footer {
     margin-top: 1.5%;
     margin-left: 5px;
+    color: #5e5e60;
+    border-top: solid #5e5e60 1px;
+    padding-top: 10px;
 }
+
+form{
+    color: white;
+    margin-left: auto;
+    margin-right: auto;
+    width: 75%;
+
+}
+
+input{
+    background-color: #3E3E3E;
+    border: 0;
+    width: 440px;
+    height: 20px;
+    color: white;
+    margin: 10px 0px 10px 0px;
+    padding-left: 5px;
+    font-family:'Josefin Sans', sans-serif;
+    font-size: 15px;
+}
+
+hr{
+    border: 1px dotted white;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+#regButton{
+    border: solid #FF5E00 1px;
+    color: #FF5E00;
+    padding: 5px;
+    width: 100px;
+    height: 34px;
+}
+
+
+h3{
+    font-size: 25px;
+    color: #FF5E00;
+    padding-left: 12.5%;
+}
+
+#mainPic{
+    width: 100%;
+}
+
+#login,#register{
+    border: solid #FF5E00 1px;
+    padding-bottom: 5px;
+    color: #FF5E00;
+}
+
+#login:hover, #register:hover, #regButton:hover{
+ background-color: rgba(255, 94, 0, 0.3);
+}
+
+#usernameL{
+    padding-right: 40%;
+}
+
+#emailL{
+    padding-right: 43%;
+}
+
+#passwordL{
+    padding-right: 41%;
+}
+
+#usernameB, #emailB, #passwordB{
+    margin-right: 80px;
+}
+
+#ageB{
+    width: 55px;
+}
+
+#top{
+    width:75%
+}
+
+select{
+    background-color: #3E3E3E;
+    border: 0;
+    color:white;
+    font-size: 15px;
+    padding: 2px;
+    outline-color: #FF5E00;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    font-family:'Josefin Sans', sans-serif;
+}
+
+
+
