@@ -1,42 +1,54 @@
 extends layout
 
 block content
-    h3 User Information
+    h3 REGISTER
+    hr#top
     form(id='form', method='post', action='/create')
-        label(for='username') Username: 
-        input(type='text', name='username')
+        label#usernameL(for='username' class="iLabel") Username
+        label#emailL(for='email') Email
         br
-        label(for='password') Password: 
-        input(type='text', name='password')
+        input#usernameB(type='text', name='username' class="iBox")
+        input#emailB(type='text', name='email')
         br
-        label(for='userlevel') User Level: 
-        select(name='userlevel')
-            option(value="User") User
-            option(value="Admin") Admin
+        label#passwordL(for='password' class="iLabel") Password
+        label#cpasswordL(for='cpassword' class="iLabel") Confirm Password
         br
-        label(for='email') Email: 
-        input(type='text', name='email')
+        input#passwordB(type='password', name='password' class="iBox")
+        input#cpasswordB(type='password', name='cpassword' class="iBox")
         br
-        label(for='age') Age: 
-        input(type='text', name='age')
+
+        label#ageL(for='age') Age
         br
-        label(for='a1') What is your gender?: 
+
+        input#ageB(type='text', name='age')
+        br
+        label#genderL(for='a1') What is your gender?
+        br
         select(name='a1')
             option(value="Male") Male
             option(value="Female") Female
             option(value="Other") Other
         br
-        label(for='a2') Are you currently employed?: 
+        label(for='a2') Are you currently employed?
+        br
         select(name='a2')
             option(value="Yes") Yes
             option(value="No") No
         br
-        label(for='a3') Do you prefer cats or dogs?: 
+        label(for='a3') Do you prefer cats or dogs?
+        br
         select(name='a3')
             option(value="Cats") Cats
             option(value="Dogs") Dogs
         br
-        input(type='submit', value='Register')
+        label(for='userlevel') User Level
+        br
+        select(name='userlevel')
+            option(value="User") User
+            option(value="Admin") Admin
+        br
+        hr
+        input#regButton(type='submit', value='REGISTER')
 
 
 
