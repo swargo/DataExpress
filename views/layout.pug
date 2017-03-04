@@ -9,10 +9,21 @@ head
 body
 
     header
-        label#phoneNum 801-532-8008 | info@heliumtraining.com
+        table
+            tr
+                td
+                    label#phoneNum 801-532-8008 | info@heliumtraining.com
+                td
+                    div#socialMedia
+                        img#fb(src="./images/facebook.png")
+                        img#insta(src="./images/instagram.png")
+                        img#linkedin(src="./images/linkedin.png")
+                        img#twitter(src="./images/twitter.png")
+                        img#email(src="./images/email.png")
     nav
         ul
             li
+
                 a#register(href='create') Register
                 a#login(href='login') Login
                 a#admin(href='admin') Admin

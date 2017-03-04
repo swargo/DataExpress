@@ -153,11 +153,23 @@ h3{
 {
     z-index: 10;
 }
-
+#picButton{
+    z-index: 30;
+}
 #login,#register{
     border: solid #FF5E00 1px;
     padding-bottom: 5px;
+    margin-left: 25px;
     color: #FF5E00;
+}
+#socialMedia{
+    text-align: right;
+}
+
+#socialMedia img{
+    width: 20px;
+    height: 20px;
+    margin: 5px;
 }
 
 #login:hover, #register:hover, #regButton:hover{
@@ -200,5 +212,7 @@ select{
     font-family:'Josefin Sans', sans-serif;
 }
 
-
+#home{
+    margin-left: 700px;
+}
 
