@@ -163,13 +163,13 @@ h3{
     color: #FF5E00;
 }
 #socialMedia{
-    text-align: right;
+    margin-left: 1000px;
 }
 
 #socialMedia img{
-    width: 20px;
-    height: 20px;
-    margin: 5px;
+    width: 17px;
+    height: 17px;
+    margin-right: 15px;
 }
 
 #login:hover, #register:hover, #regButton:hover{
