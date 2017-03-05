@@ -1,27 +1,55 @@
-doctype
-html
-    head
-        title Edit Person
-        link(rel='stylesheet', href='/styles/style.css')
-    body
-        h3 Edit Person
+extends layout
+
+block content
+        h3 Edit User
+
         form(id='form', method='post', action='/edit/' + person.id)
-            label(for='name') Name: 
-            input(type='text', name='name' value=person.name)
+            label#usernameL(for='username' class="iLabel") Username
+            label#emailL(for='email') Email
             br
-            label(for='age') Age: 
-            input(type='text', name='age' value=person.age)
+            input#usernameB(type='text', name='username' class="iBox" value=person.username)
+            input#emailB(type='text', name='email' value=person.email)
             br
-            label(for='species') Species:
-            select(name='species')
-                option(selected = person.species) #{person.species}
-                
-                option(value="Human") Human
-                option(value="Vampire") Vampire
-                option(value="Werewolf") Werewolf
-                option(value="Zombie") Zombie
+            label#passwordL(for='password' class="iLabel") Password
+            label#cpasswordL(for='cpassword' class="iLabel") Confirm Password
             br
-            input(type='submit', value='Update Person')
+            input#passwordB(type='password', name='password' class="iBox" value=person.password)
+            input#cpasswordB(type='password', name='cpassword' class="iBox")
+            br
+
+            label#ageL(for='age') Age
+            br
+
+            input#ageB(type='text', name='age' value=person.age)
+            br
+
+            label#genderL(for='a1') What is Your Gender?:
+            select(name='a1')
+                option(value=person.a1)
+                option(value="Male") Male
+                option(value="Female") Female
+                option(value="Other") Other
+            br
+            label(for='a2') Are You Currently Employed?:
+            select(name='a2')
+                option(value=person.a2)
+                option(value="Yes") Yes
+                option(value="No") No
+            br
+            label(for='a3') Do You Prefer Cats or Dogs?:
+            select(name='a3')
+                option(value=person.a3)
+                option(value="Cats") Cats
+                option(value="Dogs") Dogs
+            br
+            label(for='userlevel') User Level
+            br
+            select(name='userlevel')
+                option(value="User") User
+                option(value="Admin") Admin
+            br
+            hr
+            input#regButton(type='submit', value='Update User')
 
 
 
