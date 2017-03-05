@@ -2,4 +2,7 @@ extends layout
 block content
     img#topPic(src="./images/top.png")
     img#bottomPic(src="./images/bottom.jpg")
-    button#picButton(type='button')
+
+    canvas#barGraph(width='2000', height='100')
+
+    script(src='scripts/surveyResults.js')
