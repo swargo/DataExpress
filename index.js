@@ -30,3 +30,32 @@ app.get('/admin', route.admin);
 app.get('/login', route.login);
 
 app.listen(3000);
+
+//Cookie code
+
+// var express = require('express');
+// var cookieParser = require('cookie-parser');
+
+// var app = express();
+
+// var count = 0;
+
+// app.use(cookieParser('This is my passphrase'));
+
+// app.get('/', function (req, res) {
+//     if(req.cookies.beenHereBefore === 'yes') {
+//         count++;
+//         res.send('You have been here ' + count + ' times before');
+//     } else {
+//         count = 0;
+//         res.cookie('beenHereBefore', 'yes');
+//         res.send('This is your first time');
+//     }
+// });
+
+// app.get('/clear', function (req, res) {
+//     res.clearCookie('beenHereBefore');
+//     res.redirect('/');
+// });
+
+// app.listen(3000);
