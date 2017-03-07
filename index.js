@@ -6,6 +6,7 @@ var cookieParser = require('cookie-parser');
 var expressSession = require('express-sessions');
 var bodyParser = require('body-parser');
 var route = require('./routes/routes.js');
+var middleware = require('./middleware.js');
 
 var app = express();
 // use Pug and set the public folder for static content, like the css file in this example
@@ -30,8 +31,8 @@ app.post('/edit/:id', urlencodedParser, route.editPerson);
 app.get('/delete/:id', route.delete);
 app.get('/admin', route.admin);
 app.get('/noEntry', route.noEntry);
-
 app.get('/login', route.login);
+
 // checks to see if user and password are correct
 app.post('/login', urlencodedParser, function (req, res) {
     console.log(req.body.username);

@@ -174,7 +174,7 @@ h3{
 }
 
 #login:hover, #register:hover, #regButton:hover{
- background-color: rgba(255, 94, 0, 0.3);
+    background-color: rgba(255, 94, 0, 0.3);
 }
 
 #usernameL{
@@ -221,4 +221,3 @@ select{
     margin-top: 70vh;
     margin-left: -10px;
 }
-
