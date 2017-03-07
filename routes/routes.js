@@ -33,6 +33,11 @@ exports.create = function (req, res) {
     res.render('create');
 };
 
+exports.noEntry = function (req, res) {
+    res.render('noEntry');
+};
+
+
 exports.createPerson = function (req, res) {
     var person = new Person({ username: req.body.username, 
         password: req.body.password,
@@ -97,9 +102,11 @@ exports.admin = function (req, res) {
     });  
 };
 
+
+
 exports.login = function (req, res) {
     Person.find(function (err, person) {
         if (err) return console.error(err);
-        res.render('admin',{ title: 'Login', people: person});
+        res.render('login',{ title: 'Login', people: person});
     });  
 };

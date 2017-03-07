@@ -1,16 +1,18 @@
-var express = require('express'),
-pug = require('pug'),
-path = require('path'),
-bcrypt = require('bcrypt-nodejs'),
-cookieParser = require('cookie-parser'),
-bodyParser = require('body-parser'),
-route = require('./routes/routes.js');
+var express = require('express');
+var pug = require('pug');
+var path = require('path');
+var bcrypt = require('bcrypt-nodejs');
+var cookieParser = require('cookie-parser');
+var expressSession = require('express-sessions');
+var bodyParser = require('body-parser');
+var route = require('./routes/routes.js');
 
 var app = express();
 // use Pug and set the public folder for static content, like the css file in this example
 app.set('view engine', 'pug');
 app.set('views', __dirname + '/views');
-app.use(express.static(path.join(__dirname + '/public'))); 
+app.use(express.static(path.join(__dirname + '/public')));
+//app.use(expressSession({secret: '5ecretP455c0de', saveUninitialized: true, resave: true}));
 
 // app.get('/:viewname', function(req, res){
 //     res.render(req.params.viewname, pureJson);
@@ -27,7 +29,43 @@ app.post('/create', urlencodedParser, route.createPerson);
 app.post('/edit/:id', urlencodedParser, route.editPerson);
 app.get('/delete/:id', route.delete);
 app.get('/admin', route.admin);
+app.get('/noEntry', route.noEntry);
+
 app.get('/login', route.login);
+// checks to see if user and password are correct
+app.post('/login', urlencodedParser, function (req, res) {
+    console.log(req.body.username);
+    if (req.body.username == 'user' && req.body.password == 'pass') {
+        req.session.user = { isAuthenticated: true, username: req.body.username};
+        res.redirect('/admin');
+    } else {
+        // logout here so if the user was logged in before, it will log them out if user/pass wrong
+        res.redirect('/');
+    }
+});
+
+// logs out the user by destroying the session
+app.get('/logout', function (req, res) {
+    req.session.destroy(function(err){
+        if(err){
+            console.log(err);
+        }
+        else
+        {
+            res.redirect('/');
+        }
+    });
+
+});
+
+var checkAuth = function (req, res, next) {
+    if (req.session.user && req.session.user.isAuthenticated) {
+        next();
+    } else {
+        res.redirect('/');
+    }
+};
+
 
 app.listen(3000);
 
