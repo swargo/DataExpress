@@ -1,4 +1,5 @@
 var mongoose = require('mongoose');
+var bcrypt = require('bcrypt-nodejs');
 mongoose.Promise = global.Promise;
 mongoose.connect('mongodb://localhost/data');
 
@@ -37,20 +38,27 @@ exports.noEntry = function (req, res) {
     res.render('noEntry');
 };
 
+var hash;
 
 exports.createPerson = function (req, res) {
-    var person = new Person({ username: req.body.username, 
-        password: req.body.password,
-        userlevel: req.body.userlevel,
-        email: req.body.email, 
-        age: req.body.age, 
-        a1: req.body.a1,
-        a2: req.body.a2,
-        a3: req.body.a3 });
-    person.save(function (err, person) {
-    if (err) return console.error(err);
-        console.log(req.body.name + ' added');
+    hash = bcrypt.hash(req.body.password, null, null, function(err, hash) {
+    //store hash in your password DB
+    console.log(hash);
+    var person = new Person({ 
+    username: req.body.username, 
+    password: hash,
+    userlevel: req.body.userlevel,
+    email: req.body.email, 
+    age: req.body.age, 
+    a1: req.body.a1,
+    a2: req.body.a2,
+    a3: req.body.a3 });
+        person.save(function (err, person) {
+        if (err) return console.error(err);
+            console.log(req.body.name + ' added');
+        });
     });
+
    res.redirect('/');
 };
 
@@ -84,7 +92,7 @@ exports.editPerson = function (req, res) {
 exports.delete = function (req, res) {
     Person.findByIdAndRemove(req.params.id, function (err, person) {
         if (err) return console.error(err);
-        res.redirect('/');
+        res.redirect('/admin');
     }); 
 };
 

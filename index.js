@@ -1,7 +1,6 @@
 var express = require('express');
 var pug = require('pug');
 var path = require('path');
-var bcrypt = require('bcrypt-nodejs');
 var cookieParser = require('cookie-parser');
 var expressSession = require('express-sessions');
 var bodyParser = require('body-parser');
@@ -65,7 +64,6 @@ var checkAuth = function (req, res, next) {
         res.redirect('/');
     }
 };
-
 
 app.listen(3000);
 
