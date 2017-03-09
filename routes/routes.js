@@ -42,8 +42,6 @@ var hash;
 
 exports.createPerson = function (req, res) {
     hash = bcrypt.hash(req.body.password, null, null, function(err, hash) {
-    //store hash in your password DB
-    console.log(hash);
     var person = new Person({ 
     username: req.body.username, 
     password: hash,
@@ -58,7 +56,6 @@ exports.createPerson = function (req, res) {
             console.log(req.body.name + ' added');
         });
     });
-
    res.redirect('/');
 };
 
@@ -70,23 +67,24 @@ exports.edit = function (req, res) {
 };
 
 exports.editPerson = function (req, res) {
-    Person.findById(req.params.id, function (err, person) {
-        if (err) return console.error(err);
-        person.username = req.body.username;
-        person.password = req.body.password;
-        person.userlevel = req.body.userlevel;
-        person.email = req.body.email;
-        person.age = req.body.age;
-        person.a1 = req.body.a1;
-        person.a2 = req.body.a2;
-        person.a3 = req.body.a3;
-        person.save(function (err, person) {
-        if (err) return console.error(err);
-            console.log(req.body.name + ' updated');
-        });
-    }); 
+    hash = bcrypt.hash(req.body.password, null, null, function(err, hash) {
+        Person.findById(req.params.id, function (err, person) {
+            if (err) return console.error(err);
+            person.username = req.body.username;
+            person.password = hash;
+            person.userlevel = req.body.userlevel;
+            person.email = req.body.email;
+            person.age = req.body.age;
+            person.a1 = req.body.a1;
+            person.a2 = req.body.a2;
+            person.a3 = req.body.a3;
+            person.save(function (err, person) {
+            if (err) return console.error(err);
+                console.log(req.body.name + ' updated');
+            });
+        }); 
+    });
     res.redirect('/');
-
 };
 
 exports.delete = function (req, res) {
@@ -109,8 +107,6 @@ exports.admin = function (req, res) {
         res.render('admin',{ title: 'User List', people: person});
     });  
 };
-
-
 
 exports.login = function (req, res) {
     Person.find(function (err, person) {
