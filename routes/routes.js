@@ -37,6 +37,9 @@ exports.noEntry = function (req, res) {
     res.render('noEntry');
 };
 
+exports.logout = function (req, res) {
+    res.render('/');
+};
 
 exports.createPerson = function (req, res) {
     var person = new Person({ username: req.body.username, 
@@ -92,21 +95,37 @@ exports.details = function (req, res) {
     Person.findById(req.params.id, function (err, person) {
         if (err) return console.error(err);
         res.render('details',{ title: 'User List', person: person});
-    });  
+    });
+};
+
+var checkAuth = function (req, res, next) {
+    user_id = req.session.user_id;
+    console.log(user_id);
+    alert(user_id);
+    if (!user_id) {
+        res.redirect('/noEntry');
+    } else {
+        next();
+    }
 };
 
 exports.admin = function (req, res) {
     Person.find(function (err, person) {
         if (err) return console.error(err);
-        res.render('admin',{ title: 'User List', people: person});
+        if(checkAuth)
+            res.render('admin',{ title: 'User List', people: person});
     });  
 };
-
-
 
 exports.login = function (req, res) {
     Person.find(function (err, person) {
         if (err) return console.error(err);
-        res.render('login',{ title: 'Login', people: person});
+        console.log("CHECKING: " + checkAuth);
+        //if(!checkAuth())
+            res.render('login',{ title: 'Login', people: person});
+        // else{
+        //     delete req.session.user_id;
+        //     res.redirect('/')
+        // }
     });  
 };

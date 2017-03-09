@@ -2,8 +2,9 @@ extends layout
 
 block content
     h3 LOG IN
+    hr#top
     body
-        form(method='post', action='/')
+        form(method='post', action='/login')
             label(for='username') Username (user):
             br
             input(name='username')
