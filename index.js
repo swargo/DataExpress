@@ -1,7 +1,6 @@
 var express = require('express');
 var pug = require('pug');
 var path = require('path');
-var bcrypt = require('bcrypt-nodejs');
 var cookieParser = require('cookie-parser');
 var expressSessions = require('express-session');
 var bodyParser = require('body-parser');
@@ -20,7 +19,7 @@ app.use(expressSessions({secret: '5ecretP455c0de', saveUninitialized: true, resa
 //     res.status(404).send("Sorry, can't find that page!");
 // });
 
-var urlencodedParser = bodyParser.urlencoded({ extended: true });
+var urlencodedParser = bodyParser.urlencoded({extended: true});
 
 app.get('/', route.index);
 app.get('/create', route.create);
@@ -37,7 +36,7 @@ app.get('/login', route.login);
 app.post('/login', urlencodedParser, function (req, res) {
     console.log(req.body.username);
     if (req.body.username == 'user' && req.body.password == 'pass') {
-        req.session.user = { isAuthenticated: true, username: req.body.username};
+        req.session.user = {isAuthenticated: true, username: req.body.username};
         res.redirect('/admin');
     } else {
         // logout here so if the user was logged in before, it will log them out if user/pass wrong
@@ -56,7 +55,7 @@ var count = 0;
 app.use(cookieParser('This is my passphrase'));
 
 app.get('/', function (req, res) {
-    if(req.cookies.beenHereBefore === 'yes') {
+    if (req.cookies.beenHereBefore === 'yes') {
         count++;
         res.send('You have been here ' + count + ' times before');
     } else {
@@ -64,12 +63,12 @@ app.get('/', function (req, res) {
         res.cookie('beenHereBefore', 'yes');
         res.send('This is your first time');
     }
+
 });
+
+app.listen(3000);
 
 app.get('/clear', function (req, res) {
     res.clearCookie('beenHereBefore');
     res.redirect('/');
 });
-
-
-app.listen(3000);

@@ -17,7 +17,7 @@ var unemployed = 2;
 
 //cats
 ctx.beginPath();
-ctx.fillStyle="green";
+ctx.fillStyle="#BDADE8";
 ctx.fillRect(placement*5,(10-cats)*10,100,100);
 ctx.fillStyle="black";
 ctx.fillText(cats + " Cats",placement*5,100);
@@ -25,7 +25,7 @@ ctx.fill();
 
 //dogs
 ctx.beginPath();
-ctx.fillStyle="red";
+ctx.fillStyle="#6B6678";
 ctx.fillRect(placement*16,(10-dogs)*10,100,100);
 ctx.fillStyle="black";
 ctx.fillText(dogs + " Dogs",placement*16,100);
@@ -33,7 +33,7 @@ ctx.fill();
 
 //male
 ctx.beginPath();
-ctx.fillStyle="green";
+ctx.fillStyle="#BDADE8";
 ctx.fillRect(placement*30,(10-male)*10,100,100);
 ctx.fillStyle="black";
 ctx.fillText(male + " Males",placement*30,100);
@@ -41,7 +41,7 @@ ctx.fill();
 
 //female
 ctx.beginPath();
-ctx.fillStyle="red";
+ctx.fillStyle="#6B6678";
 ctx.fillRect(placement*41,(10-female)*10,100,100);
 ctx.fillStyle="black";
 ctx.fillText(female + " Females",placement*41,100);
@@ -49,7 +49,7 @@ ctx.fill();
 
 //other
 ctx.beginPath();
-ctx.fillStyle="blue";
+ctx.fillStyle="#78656D";
 ctx.fillRect(placement*52,(10-other)*10,100,100);
 ctx.fillStyle="black";
 ctx.fillText(other + " Others",placement*52,100);
@@ -57,7 +57,7 @@ ctx.fill();
 
 //employed
 ctx.beginPath();
-ctx.fillStyle="green";
+ctx.fillStyle="#BDADE8";
 ctx.fillRect(placement*66,(10-employed)*10,100,100);
 ctx.fillStyle="black";
 ctx.fillText(employed + " Employed",placement*66,100);
@@ -65,7 +65,7 @@ ctx.fill();
 
 //unemployed
 ctx.beginPath();
-ctx.fillStyle="red";
+ctx.fillStyle="#6B6678";
 ctx.fillRect(placement*77,(10-unemployed)*10,100,100);
 ctx.fillStyle="black";
 ctx.fillText(unemployed + " Unemployed",placement*77,100);
