@@ -135,14 +135,15 @@ h3{
 
 
 @keyframes fadein {
-    from { opacity: 0; top: 200px; }
-    to   { opacity: 1; top: 141px;}
+    from { opacity: 0; top: 220px; }
+    to   { opacity: 1; top: 180px;}
 }
 
 #topPic, #bottomPic
 {
     position:absolute;
     width:100%;
+    height:60%;
 }
 #topPic
 {
@@ -157,7 +158,7 @@ h3{
 #picButton{
     z-index: 30;
 }
-#login,#register{
+#login,#register, #logout{
     border: solid #FF5E00 1px;
     padding-bottom: 5px;
     margin-left: 25px;
@@ -167,30 +168,35 @@ h3{
     margin-left: 70vw;
 }
 
-#socialMedia img{
+/*#socialMedia td img{*/
+    /*width: 17px;*/
+    /*height: 17px;*/
+    /*margin-right: 15px;*/
+/*}*/
+
+#socialMedia img {
     width: 17px;
     height: 17px;
-    margin-right: 15px;
+    padding: 2px;
+}
+
+#socialMedia{
+    right: 0px;
+    width: 150px;
+    padding: 10px;
 }
 
 #login:hover, #register:hover, #regButton:hover{
     background-color: rgba(255, 94, 0, 0.3);
 }
 
-#usernameL{
-    padding-right: 40%;
+tr{
+    padding-right: 10%;
 }
 
-#emailL{
-    padding-right: 43%;
-}
-
-#passwordL{
-    padding-right: 41%;
-}
-
-#usernameB, #emailB, #passwordB{
+#usernameB, #emailB, #passwordB, #ageB{
     margin-right: 80px;
+    width: 50%;
 }
 
 #ageB{
@@ -218,6 +224,11 @@ select{
 }
 
 #barGraph {
-    margin-top: 70vh;
-    margin-left: -10px;
+}
+
+table{
+    width:100%
+}
+td{
+    width: 50%;
 }

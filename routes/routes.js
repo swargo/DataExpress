@@ -1,5 +1,6 @@
 var mongoose = require('mongoose');
 var bcrypt = require('bcrypt-nodejs');
+var index = require('../index');
 mongoose.Promise = global.Promise;
 mongoose.connect('mongodb://localhost/data');
 
@@ -106,34 +107,17 @@ exports.details = function (req, res) {
     });
 };
 
-var checkAuth = function (req, res, next) {
-    user_id = req.session.user_id;
-    console.log(user_id);
-    alert(user_id);
-    if (!user_id) {
-        res.redirect('/noEntry');
-    } else {
-        next();
-    }
-};
 
 exports.admin = function (req, res) {
     Person.find(function (err, person) {
         if (err) return console.error(err);
-        if(checkAuth)
-            res.render('admin',{ title: 'User List', people: person});
+        res.render('admin',{ title: 'User List', people: person});
     });  
 };
 
 exports.login = function (req, res) {
     Person.find(function (err, person) {
-        if (err) return console.error(err);
-        console.log("CHECKING: " + checkAuth);
-        //if(!checkAuth())
-            res.render('login',{ title: 'Login', people: person});
-        // else{
-        //     delete req.session.user_id;
-        //     res.redirect('/')
-        // }
-    });  
+        if (err) return console.log("INVALID LOGIN");
+        res.render('login',{ title: 'Login', people: person});
+    });
 };

@@ -4,22 +4,27 @@ block content
     h3 REGISTER
     hr#top
     form(id='form', method='post', action='/create')
-        label#usernameL(for='username' class="iLabel") Username
-        label#emailL(for='email') Email
-        br
-        input#usernameB(type='text', name='username' class="iBox", required)
-        input#emailB(type='text', name='email', required)
-        br
-        label#passwordL(for='password' class="iLabel") Password
-        br
-        input#passwordB(type='password', name='password' class="iBox", required)
-        br
-
-        label#ageL(for='age') Age
-        br
-
-        input#ageB(type='text', name='age', required)
-        br
+        table
+            tr
+                td
+                    label#usernameL(for='username' class="iLabel") Username
+                td
+                    label#emailL(for='email') Email
+            tr
+                td
+                    input#usernameB(type='text', name='username' class="iBox", required)
+                td
+                    input#emailB(type='text', name='email', required)
+            tr
+                td
+                    label#passwordL(for='password' class="iLabel") Password
+                td
+                    label#ageL(for='age' class="iLabel") Age
+            tr
+                td
+                    input#passwordB(type='password', name='password' class="iBox", required)
+                td
+                    input#ageB(type='text', name='age', class="iBox" required)
 
         label#genderL(for='a1') What is Your Gender?:
         select(name='a1')
