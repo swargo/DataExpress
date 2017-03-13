@@ -23,8 +23,11 @@ body
                         img(src="/images/twitter.png")
                         img(src="/images/email.png")
     nav
-        ul
-            li#buttons
+        ul.primary-nav
+            li.left
+                a#logoB(href='/')
+                    img#logo(src="/images/heliumLogo.png")
+            li.right
                 if authorized
                     a#logout(href='logout') Logout
                     if isAdmin
@@ -34,8 +37,7 @@ body
                     a#login(href='login') Login
 
                 a#home(href='/') Home
-                a#logoB(href='/')
-                    img#logo(src="/images/heliumLogo.png")
+
 
     section
         block content

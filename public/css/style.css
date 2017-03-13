@@ -52,8 +52,7 @@ ul {
 }
 
 #logoB, #logoB:hover{
-    margin: 0;
-    margin-right: 20px;
+    margin: auto;
     border: 0;
 
 }
@@ -142,7 +141,6 @@ h3{
 {
     position:absolute;
     width:100%;
-    height:60%;
 }
 #topPic
 {
@@ -229,4 +227,20 @@ table{
 }
 td{
     width: 50%;
+}
+nav{
+    list-style: none;
+    margin: 0;
+
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+
+    -webkit-flex-flow: row wrap;
+    justify-content: flex-end;
+}
+.left{
+    margin-right: auto;
 }
