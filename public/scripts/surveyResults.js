@@ -5,7 +5,6 @@ var routes = require('.../routes/routes.js');
 var placement = 10;
 
 ctx.font="18px Josefin Sans";
-JSON.stringify(people);
 var cats = 10;
 var dogs = 7;
 

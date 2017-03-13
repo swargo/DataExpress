@@ -7,7 +7,6 @@ body {
 #logo{
     width: 250px;
     height: 60px;
-
 }
 
 
@@ -152,7 +151,6 @@ h3{
 }
 #bottomPic
 {
-    z-index: 10;
     margin-left: -8px;
 }
 #picButton{
