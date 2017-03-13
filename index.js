@@ -64,8 +64,6 @@ app.get('/logout', function (req, res) {
 //     }
 // });
 
-
-
 exports.checkAuth = function (req, res, next) {
     if (req.session && req.session.user === "amy" && req.session.admin)
         return next();
