@@ -54,6 +54,7 @@ app.get('/logout', function (req, res) {
 });
 // checks to see if user and password are correct
 app.post('/login', urlencodedParser, function (req, res) {
+
     if (req.body.username == 'user' && req.body.password == 'pass') {
         req.session.user = {isAuthenticated: true, username: req.body.username};
         res.redirect('/admin');
