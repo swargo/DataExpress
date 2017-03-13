@@ -2,22 +2,34 @@ var express = require('express');
 var pug = require('pug');
 var path = require('path');
 var cookieParser = require('cookie-parser');
-var session = require('express-session');
 var bodyParser = require('body-parser');
 var route = require('./routes/routes.js');
 //var middleware = require('./middleware.js');
-
 var app = express();
+var session = require('express-session');
+var mongoose = require('mongoose');
+
 // use Pug and set the public folder for static content, like the css file in this example
 app.set('view engine', 'pug');
 app.set('views', __dirname + '/views');
 app.use(cookieParser('This is my passphrase'));
 app.use(express.static(path.join(__dirname + '/public')));
 app.use(session({
-    secret: '5ecretP455c0de',
+    secret: 'a4f8071f-c873-4447-8ee2',
+    cookie: { maxAge: 2628000000 },
+    resave: true,
     saveUninitialized: true,
-    resave: true
+    store: new (require('express-sessions'))({
+        storage: 'mongodb',
+        instance: mongoose, // optional
+        host: 'localhost', // optional
+        port: 27017, // optional
+        db: 'test', // optional
+        collection: 'sessions', // optional
+        expire: 86400 // optional
+    })
 }));
+
 
 // app.get('/:viewname', function(req, res){
 //     res.render(req.params.viewname, pureJson);

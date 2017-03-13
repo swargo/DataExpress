@@ -1,8 +1,10 @@
 var mongoose = require('mongoose');
 var bcrypt = require('bcrypt-nodejs');
 var index = require('../index');
+
 mongoose.Promise = global.Promise;
 mongoose.connect('mongodb://localhost/data');
+
 
 var mdb = mongoose.connection;
 mdb.on('error', console.error.bind(console, 'connection error:'));
