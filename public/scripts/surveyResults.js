@@ -1,6 +1,6 @@
 var c = document.getElementById("barGraph");
 var ctx = c.getContext("2d");
-var routes = require('.../routes/routes.js');
+//var routes = require('.../routes/routes.js');
 
 var placement = 10;
 
