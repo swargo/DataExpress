@@ -19,11 +19,6 @@ app.use(session({
     resave: true
 }));
 
-// app.get('/:viewname', function(req, res){
-//     res.render(req.params.viewname, pureJson);
-//     res.status(404).send("Sorry, can't find that page!");
-// });
-
 var urlencodedParser = bodyParser.urlencoded({extended: true});
 
 app.get('/', route.index);
@@ -71,7 +66,6 @@ exports.checkAuth = function (req, res, next) {
  ******************************/
 
 var count = 0;
-
 
 app.get('/clear', function (req, res) {
     res.clearCookie('beenHereBefore');

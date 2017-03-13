@@ -68,7 +68,7 @@ exports.createPerson = function (req, res) {
 exports.edit = function (req, res) {
     Person.findById(req.params.id, function (err, person) {
         if (err) return console.error(err);
-        res.render('edit', { person: person });
+        res.render('edit/' + person.id, { person: person });
     }); 
 };
 
