@@ -5,8 +5,8 @@ head
     <link rel='shortcut icon' href='/images/heliumIcon.png' type='image/x-icon'/ >
     block vars
     title Helium Training
-    - var authorized = false
-    - var isAdmin = false
+    - var authorized = true
+    - var isAdmin = true
 
 body
 
@@ -32,6 +32,7 @@ body
                     a#logout(href='logout') Logout
                     if isAdmin
                         a#admin(href='admin') Admin
+                    a#edit(href='edit') Edit
                 else
                     a#register(href='create') Register
                     a#login(href='login') Login

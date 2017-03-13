@@ -1,11 +1,11 @@
 var c = document.getElementById("barGraph");
 var ctx = c.getContext("2d");
-var routes = require('.../routes/routes.js');
+//var routes = require('.../routes/routes.js');
 
 var placement = 10;
 
 ctx.font="18px Josefin Sans";
-JSON.stringify(people);
+//JSON.stringify(people);
 var cats = 10;
 var dogs = 7;
 

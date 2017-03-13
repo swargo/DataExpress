@@ -4,24 +4,27 @@ block content
         h3 Edit User
 
         form(id='form', method='post', action='/edit/' + person.id)
-            label#usernameL(for='username' class="iLabel") Username
-            label#emailL(for='email') Email
-            br
-            input#usernameB(type='text', name='username' class="iBox" value=person.username)
-            input#emailB(type='text', name='email' value=person.email)
-            br
-            label#passwordL(for='password' class="iLabel") Password
-            label#cpasswordL(for='cpassword' class="iLabel") Confirm Password
-            br
-            input#passwordB(type='password', name='password' class="iBox" value=person.password)
-            input#cpasswordB(type='password', name='cpassword' class="iBox")
-            br
-
-            label#ageL(for='age') Age
-            br
-
-            input#ageB(type='text', name='age' value=person.age)
-            br
+            table
+                tr
+                    td
+                        label#usernameL(for='username' class="iLabel") Username
+                    td
+                        label#emailL(for='email') Email
+                tr
+                    td
+                        input#usernameB(type='text', name='username' class="iBox",value=person.username, required)
+                    td
+                        input#emailB(type='text', name='email',value=person.email, required)
+                tr
+                    td
+                        label#passwordL(for='password' class="iLabel") Password
+                    td
+                        label#ageL(for='age' class="iLabel") Age
+                tr
+                    td
+                        input#passwordB(type='password', name='password' class="iBox",value=person.password, required)
+                    td
+                        input#ageB(type='text', name='age', class="iBox",value=person.age, required)
 
             label#genderL(for='a1') What is Your Gender?:
             select(name='a1')
