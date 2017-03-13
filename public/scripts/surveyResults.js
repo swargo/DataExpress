@@ -5,7 +5,6 @@ var ctx = c.getContext("2d");
 var placement = 10;
 
 ctx.font="18px Josefin Sans";
-//JSON.stringify(people);
 var cats = 10;
 var dogs = 7;
 
