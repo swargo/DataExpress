@@ -36,6 +36,7 @@ app.get('/', route.index);
 app.get('/create', route.create);
 app.get('/edit/:id', route.edit);
 app.get('/login', route.login);
+app.post('/login', urlencodedParser, route.loginButton);
 app.get('/details/:id', route.details);
 app.post('/create', urlencodedParser, route.createPerson);
 app.post('/edit/:id', urlencodedParser, route.editPerson);
@@ -53,16 +54,15 @@ app.get('/logout', function (req, res) {
     )
 });
 // checks to see if user and password are correct
-app.post('/login', urlencodedParser, function (req, res) {
-
-    if (req.body.username == 'user' && req.body.password == 'pass') {
-        req.session.user = {isAuthenticated: true, username: req.body.username};
-        res.redirect('/admin');
-    } else {
-        // logout here so if the user was logged in before, it will log them out if user/pass wrong
-        res.redirect('/');
-    }
-});
+// app.post('/login', urlencodedParser, function (req, res) {
+//     if (req.body.username == 'user' && req.body.password == 'pass') {
+//         req.session.user = {isAuthenticated: true, username: req.body.username};
+//         res.redirect('/admin');
+//     } else {
+//         // logout here so if the user was logged in before, it will log them out if user/pass wrong
+//         res.redirect('/');
+//     }
+// });
 
 exports.checkAuth = function (req, res, next) {
     if (req.session && req.session.user === "amy" && req.session.admin)

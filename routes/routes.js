@@ -44,6 +44,14 @@ exports.noEntry = function (req, res) {
 };
 
 exports.logout = function (req, res) {
+    req.session.destroy(function(err){
+        if(err){
+            console.log(err);
+        }
+        else {
+            res.redirect('/');
+        }
+    })
     res.render('/');
 };
 var hash;
@@ -72,7 +80,7 @@ exports.createPerson = function (req, res) {
 exports.edit = function (req, res) {
     Person.findById(req.params.id, function (err, person) {
         if (err) return console.error(err);
-        res.render('edit/' + person.id, { person: person });
+        res.render('edit', { person: person });
     }); 
 };
 
@@ -119,9 +127,25 @@ exports.admin = function (req, res) {
     });  
 };
 
+exports.loginButton = function (req, res) {
+    mongoose.model('People_Collection').findOne({username: req.body.username, password: req.body.password}, function(err, user) {
+        if(user) {
+            if(user.userLevel === 'Admin') {
+                res.redirect('/admin');
+                //set isAdmin = true
+            } else {
+                res.redirect('/edit/' + user.id);
+                //set authorized = true;
+            }
+        } else {
+            res.redirect('/');
+        }
+    });
+};
+
 exports.login = function (req, res) {
     Person.find(function (err, person) {
         if (err) return console.log("INVALID LOGIN");
         res.render('login',{ title: 'Login', people: person});
     });
-};
+}
