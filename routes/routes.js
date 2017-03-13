@@ -5,6 +5,8 @@ var index = require('../index');
 mongoose.Promise = global.Promise;
 mongoose.connect('mongodb://localhost/data');
 
+var salt = bcrypt.genSaltSync(10);
+var hash;
 
 var mdb = mongoose.connection;
 mdb.on('error', console.error.bind(console, 'connection error:'));
@@ -52,10 +54,9 @@ exports.logout = function (req, res) {
     })
     res.render('/');
 };
-var hash;
 
 exports.createPerson = function (req, res) {
-    hash = bcrypt.hash(req.body.password, null, null, function(err, hash) {
+    var hash = bcrypt.hashSync(req.body.password, salt);
         var person = new Person({
         username: req.body.username,
         password: hash,
@@ -70,8 +71,6 @@ exports.createPerson = function (req, res) {
         if (err) return console.error(err);
             console.log(req.body.name + ' added');
         });
-
-    });
    res.redirect('/');
 };
 
@@ -83,7 +82,7 @@ exports.edit = function (req, res) {
 };
 
 exports.editPerson = function (req, res) {
-    hash = bcrypt.hash(req.body.password, null, null, function(err, hash) {
+    var hash = bcrypt.hash(req.body.password, null, null, function(err, hash) {
         Person.findById(req.params.id, function (err, person) {
             if (err) return console.error(err);
             person.username = req.body.username;
@@ -126,15 +125,23 @@ exports.admin = function (req, res) {
 };
 
 exports.loginButton = function (req, res) {
-    mongoose.model('People_Collection').findOne({username: req.body.username, password: req.body.password}, function(err, user) {
+        mongoose.model('People_Collection').findOne({
+            username: req.body.username,
+        }, 
+        function(err, user) {
         if(user) {
-            if(user.userLevel === 'Admin') {
-                res.redirect('/admin');
-                //set isAdmin = true
-            } else {
-                res.redirect('/edit/' + user.id);
-                //set authorized = true;
-            }
+            bcrypt.compare(req.body.password, user.password, function(err, good) {
+                console.log(good);
+                    if(good) {
+                        if(user.userlevel == 'Admin') {
+                            res.redirect('/admin');
+                            //set isAdmin = true
+                        } else {
+                            res.redirect('/edit/' + user.id);
+                            //set authorized = true;
+                        }
+                }
+            })
         } else {
             res.redirect('/');
         }
