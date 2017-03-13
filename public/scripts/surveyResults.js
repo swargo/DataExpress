@@ -5,7 +5,7 @@ var ctx = c.getContext("2d");
 var placement = 12;
 
 ctx.font="18px Josefin Sans";
-var cats = 0;
+var cats = document.getElementById("Cats").innerHTML;
 var dogs = 7;
 
 var male = 6;
