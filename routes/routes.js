@@ -145,10 +145,8 @@ exports.loginButton = function (req, res) {
                 console.log("WHY" + good);
                     if(good) {
                         if(user.userlevel == 'Admin') {
-                            console.log("BEFORE");
-                            res.redirect('/layout',{authorized: true, isAdmin:true});
-                            console.log("AFTER");
-                            res.redirect('/admin');
+
+                            res.redirect('/adminUser');
                         } else {
                             res.redirect('/edit/' + user.id);
                         }
