@@ -84,7 +84,7 @@ exports.edit = function (req, res) {
 };
 
 exports.editPerson = function (req, res) {
-    var hash = bcrypt.hash(req.body.password, null, null, function(err, hash) {
+    var hash = bcrypt.hashSync(req.body.password, salt);
         Person.findById(req.params.id, function (err, person) {
             if (err) return console.error(err);
             person.username = req.body.username;
@@ -100,7 +100,6 @@ exports.editPerson = function (req, res) {
                 console.log(req.body.name + ' updated');
             });
         }); 
-    });
     res.redirect('/');
 };
 
@@ -140,7 +139,6 @@ exports.loginButton = function (req, res) {
                             //set isAdmin = true
                         } else {
                             res.redirect('/edit/' + user.id);
-                            //set authorized = true;
                         }
                 }
             })
