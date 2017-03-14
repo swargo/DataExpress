@@ -35,7 +35,9 @@ exports.index = function(req, res) {
     });  
 };
 
-
+exports.user = function (req, res) {
+    res.render('user');
+}
 
 exports.create = function (req, res) {
     res.render('create');
@@ -46,15 +48,15 @@ exports.noEntry = function (req, res) {
 };
 
 exports.logout = function (req, res) {
-    req.session.destroy(function(err){
-        if(err){
-            console.log(err);
-        }
-        else {
-            res.redirect('/');
-        }
-    })
-    res.render('/');
+    // req.session.destroy(function(err){
+    //     if(err){
+    //         console.log(err);
+    //     }
+    //     else {
+    //         res.redirect('/');
+    //     }
+    // })
+    res.redirect('/');
 };
 
 exports.createPerson = function (req, res) {
@@ -84,7 +86,7 @@ exports.edit = function (req, res) {
 };
 
 exports.editPerson = function (req, res) {
-    var hash = bcrypt.hash(req.body.password, null, null, function(err, hash) {
+    var hash = bcrypt.hashSync(req.body.password, salt);
         Person.findById(req.params.id, function (err, person) {
             if (err) return console.error(err);
             person.username = req.body.username;
@@ -100,7 +102,6 @@ exports.editPerson = function (req, res) {
                 console.log(req.body.name + ' updated');
             });
         }); 
-    });
     res.redirect('/');
 };
 
@@ -144,10 +145,8 @@ exports.loginButton = function (req, res) {
                             res.redirect('/layout',{authorized: true, isAdmin:true});
                             console.log("AFTER");
                             res.redirect('/admin');
-                            //set isAdmin = true
                         } else {
                             res.redirect('/edit/' + user.id);
-                            //set authorized = true;
                         }
                 }
             })

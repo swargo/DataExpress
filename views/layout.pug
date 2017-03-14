@@ -5,9 +5,8 @@ head
     <link rel='shortcut icon' href='/images/heliumIcon.png' type='image/x-icon'/ >
     block vars
     title Helium Training
-
-
-
+    - var authorized = false
+    - var isAdmin = false
 body
 
     header
@@ -31,6 +30,7 @@ body
                     a#login(href='login') Login
 
                 a#home(href='/') Home
+                
 
 
     section

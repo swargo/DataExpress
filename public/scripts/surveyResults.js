@@ -1,9 +1,10 @@
 var c = document.getElementById("barGraph");
 var ctx = c.getContext("2d");
+
 var placement = 12;
 
 ctx.font="18px Josefin Sans";
-var cats = document.getElementById("Cats").innerHTML;
+var cats = 10;
 var dogs = 7;
 
 var male = 6;

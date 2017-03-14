@@ -43,6 +43,7 @@ app.post('/edit/:id', urlencodedParser, route.editPerson);
 app.get('/delete/:id', route.delete);
 app.get('/admin', route.admin);
 app.get('/noEntry', route.noEntry);
+app.get('/user', route.user);
 
 app.get('/logout', function (req, res) {
     req.session.destroy(function (err) {
@@ -53,16 +54,6 @@ app.get('/logout', function (req, res) {
         }
     )
 });
-// checks to see if user and password are correct
-// app.post('/login', urlencodedParser, function (req, res) {
-//     if (req.body.username == 'user' && req.body.password == 'pass') {
-//         req.session.user = {isAuthenticated: true, username: req.body.username};
-//         res.redirect('/admin');
-//     } else {
-//         // logout here so if the user was logged in before, it will log them out if user/pass wrong
-//         res.redirect('/');
-//     }
-// });
 
 exports.checkAuth = function (req, res, next) {
     if (req.session && req.session.user === "amy" && req.session.admin)

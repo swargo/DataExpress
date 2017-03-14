@@ -1,41 +1,11 @@
 extends layout
 block content
 
+    img#topPic(src='/images/top.png')
+    img#bottomPicture(src='/images/bottom.jpg')
+    hr
     canvas#barGraph(width='2000', height='100')
-
-    p#Female #{female}
-    p#Male #{male}
-    p#Other #{other}
-    p#Employed #{employed}
-    p#Unemployed #{unemployed}
-    p#Cats #{cats}
-    p#Dogs #{dogs}
 
     script(src='scripts/surveyResults.js')
 
-    script
-    - female = 0;
-    - male = 0;
-    - other = 0;
-    - employed = 0;
-    - unemployed = 0;
-    - cats = 0;
-    - dogs = 0;
-        each person in people
-            if(person.a1 == "Female")
-                #{female += 1}
-            if(person.a1 == "Male")
-                #{male += 1}
-            if(person.a1 == "Other")
-                #{other += 1}
-            if(person.a2 == "Yes")
-                #{employed += 1}
-            if(person.a2 == "No")
-                #{unemployed += 1}
-            if(person.a3 == "Cats")
-                #{cats += 1}
-            if(person.a3 == "Dogs")
-                #{dogs += 1}
-
-    document.getElementById("Cats").innerHTML = 5;
 
