@@ -1,22 +1,5 @@
 var c = document.getElementById("barGraph");
 var ctx = c.getContext("2d");
-var routes = require('.../routes/routes.js');
-person = routes.index;
-function parseData(){
-    for(var i = 0; i< person.length; i++){
-        p = person[i].split(',');
-        id = p[0].replace("\"", "").split(":")[1];
-        username = p[1].replace("\"", "").split(":")[1];
-        password = p[2].replace("\"", "").split(":")[1];
-        userLevel = p[3].replace("\"", "").split(":")[1];
-        email = p[4].replace("\"", "").split(":")[1];
-        age = p[5].replace("\"", "").split(":")[1];
-        console.log(username, password)
-    }
-}
-
-
-parseData();
 var placement = 12;
 
 ctx.font="18px Josefin Sans";

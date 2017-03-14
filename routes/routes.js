@@ -128,14 +128,21 @@ exports.admin = function (req, res) {
 
 exports.loginButton = function (req, res) {
         mongoose.model('People_Collection').findOne({
-            username: req.body.username,
+            username: req.body.username
         }, 
         function(err, user) {
         if(user) {
             bcrypt.compare(req.body.password, user.password, function(err, good) {
-                console.log(good);
+                if(err){
+                    console.log(err);
+                    res.redirect('/');
+                }
+                console.log("WHY" + good);
                     if(good) {
                         if(user.userlevel == 'Admin') {
+                            console.log("BEFORE");
+                            res.redirect('/layout',{authorized: true, isAdmin:true});
+                            console.log("AFTER");
                             res.redirect('/admin');
                             //set isAdmin = true
                         } else {
@@ -155,4 +162,4 @@ exports.login = function (req, res) {
         if (err) return console.log("INVALID LOGIN");
         res.render('login',{ title: 'Login', people: person});
     });
-}
+};
