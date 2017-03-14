@@ -44,6 +44,8 @@ app.get('/delete/:id', route.delete);
 app.get('/admin', route.admin);
 app.get('/noEntry', route.noEntry);
 app.get('/user', route.user);
+app.get('/adminUser', route.adminUser);
+
 
 app.get('/logout', function (req, res) {
     req.session.destroy(function (err) {

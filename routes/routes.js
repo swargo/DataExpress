@@ -37,7 +37,11 @@ exports.index = function(req, res) {
 
 exports.user = function (req, res) {
     res.render('user');
-}
+};
+
+exports.adminUser= function (req, res) {
+    res.render('adminUser');
+};
 
 exports.create = function (req, res) {
     res.render('create');
