@@ -54,7 +54,6 @@ ul {
 #logoB, #logoB:hover{
     margin: auto;
     border: 0;
-
 }
 
 li {
@@ -151,9 +150,7 @@ h3{
 {
     margin-left: -8px;
 }
-#picButton{
-    z-index: 30;
-}
+
 #login,#register, #logout, #edit{
     border: solid #FF5E00 1px;
     padding-bottom: 5px;
@@ -195,7 +192,8 @@ select{
 }
 
 #home{
-    margin-left: 700px;
+    margin-left: 1100px;
+    margin-bottom: 20px;
 }
 
 table{
@@ -219,5 +217,9 @@ nav{
 }
 .left{
     margin-right: auto;
+}
+
+#barGraph {
+    padding: 10px;
 }
 
