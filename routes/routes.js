@@ -35,7 +35,9 @@ exports.index = function(req, res) {
     });  
 };
 
-
+exports.user = function (req, res) {
+    res.render('user');
+}
 
 exports.create = function (req, res) {
     res.render('create');
@@ -46,15 +48,15 @@ exports.noEntry = function (req, res) {
 };
 
 exports.logout = function (req, res) {
-    req.session.destroy(function(err){
-        if(err){
-            console.log(err);
-        }
-        else {
-            res.redirect('/');
-        }
-    })
-    res.render('/');
+    // req.session.destroy(function(err){
+    //     if(err){
+    //         console.log(err);
+    //     }
+    //     else {
+    //         res.redirect('/');
+    //     }
+    // })
+    res.redirect('/');
 };
 
 exports.createPerson = function (req, res) {
@@ -136,7 +138,6 @@ exports.loginButton = function (req, res) {
                     if(good) {
                         if(user.userlevel == 'Admin') {
                             res.redirect('/admin');
-                            //set isAdmin = true
                         } else {
                             res.redirect('/edit/' + user.id);
                         }
