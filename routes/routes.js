@@ -37,7 +37,11 @@ exports.index = function(req, res) {
 
 exports.user = function (req, res) {
     res.render('user');
-}
+};
+
+exports.adminUser= function (req, res) {
+    res.render('adminUser');
+};
 
 exports.create = function (req, res) {
     res.render('create');
@@ -138,16 +142,14 @@ exports.loginButton = function (req, res) {
                     console.log(err);
                     res.redirect('/');
                 }
-                console.log("WHY" + good);
-                    if(good) {
-                        if(user.userlevel == 'Admin') {
-                            console.log("BEFORE");
-                            //res.redirect('/layout',{authorized: true, isAdmin:true});
-                            console.log("AFTER");
-                            res.redirect('/admin');
-                        } else {
-                            res.redirect('/edit/' + user.id);
-                        }
+                if(good) {
+                    if(user.userlevel == 'Admin') {
+                        //res.redirect('/layout',{authorized: true, isAdmin:true});
+                        res.redirect('/admin');
+                        res.redirect('/adminUser');
+                    } else {
+                        res.redirect('/edit/' + user.id);
+                    }
                 }
             })
         } else {

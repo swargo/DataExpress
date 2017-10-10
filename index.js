@@ -14,6 +14,7 @@ app.set('view engine', 'pug');
 app.set('views', __dirname + '/views');
 app.use(cookieParser('This is my passphrase'));
 app.use(express.static(path.join(__dirname + '/public')));
+
 app.use(session({
     secret: 'a4f8071f-c873-4447-8ee2',
     cookie: { maxAge: 2628000000 },
@@ -44,6 +45,8 @@ app.get('/delete/:id', route.delete);
 app.get('/admin', route.admin);
 app.get('/noEntry', route.noEntry);
 app.get('/user', route.user);
+app.get('/adminUser', route.adminUser);
+
 
 app.get('/logout', function (req, res) {
     req.session.destroy(function (err) {
